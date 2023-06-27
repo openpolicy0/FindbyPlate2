@@ -21,10 +21,10 @@ print("""[bold blue]
 
 [/bold blue]""")
 pwd = os.getcwd()
-print("""[pruple]
+print("""[purple]
 type "help" for more options in terminal
 type "show" for input variables and "set" to set the value ex. set <value>
-[/pruple]""")
+[/purple]""")
 
 def menu():
     try:
@@ -81,19 +81,19 @@ run vin-search    run vin lookup and see details about the owners car
     elif fbp=="":
          menu()
 
-    elif fbp=="run vin-search":
-         try:
-             print("==>", vin)
-         except:
-             print("[dark_orange]no vin options found[/dark_orange]")
-         menu()
-
     elif fbp=="show plate-options":
          try:
              print("==>", plate)
              print("==>", state)
          except:
              print("[dark_orange]no plate options found[/dark_orange]")
+         menu()
+
+    elif fbp=="show vin-options":
+         try:
+             print("==>", vin)
+         except:
+             print("[dark_orange]no vin number options found[/dark_orange]")
          menu()
 
     elif fbp=="list states":
