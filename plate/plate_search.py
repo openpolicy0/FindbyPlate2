@@ -28,7 +28,7 @@ def plate():
     for _ in tqdm(range(100),
 
        desc = "loading report...",
-       ascii = False,ncols=250):
+       ascii = False,ncols=100):
        time.sleep(0.1)
     time.sleep(1)
     print("[bold green]results found![/bold green]")
