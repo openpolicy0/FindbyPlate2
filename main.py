@@ -51,6 +51,7 @@ show vin-options        show vin lookup options
 run plate-search  run search on plate and get information on it
 run vin-search    run vin lookup and see details about the owners car
 
+exit
        """)
        menu()
 
@@ -196,6 +197,9 @@ WY - wyoming
          except:
              print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
          menu()
+    elif fbp=="exit":
+         sleep(1)
+         sys.exit()
 
     else:
         print("[red]error! no command found[/red]")
