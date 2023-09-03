@@ -54,6 +54,22 @@ run vin-search    run vin lookup and see details about the owners car
        """)
        menu()
 
+    elif fbp=="set":
+         print("""[*] type "set -v" for detail info""")
+         print("""(plate,state,vin)""")
+         menu()
+
+    elif fbp=="set -v":
+         print("""
+ set options              info
+-------------            ------
+set plate                set plate number of car ex. "YZW902"
+set state                set state were the car is from ex. "CA"
+set vin                  set vin number (vehicle identification number) of
+                         plate number
+         """)
+         menu()
+
     elif fbp=="set plate":
          global plate
          plate = str(input("plate: ")).strip()
