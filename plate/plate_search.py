@@ -19,7 +19,7 @@ def plate():
     url2 = 'https://findbyplate.com/US/'+state+'/'+plate+'/'
 
     headers = {
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 13; SM-T220) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0'
     }
 
     rs = requests.get(url2, headers=headers)
