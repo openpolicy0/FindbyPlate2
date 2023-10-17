@@ -8,6 +8,9 @@ like a free API kinda.
 It will give u a shell like interface, type help to see commands 
 i am still working on this program to extract the information from the givin output
 
+
+you will probably have to go to the website first and lookup the lisense plate then go back to your terminal and input the lisense plate and state for example - CA and lisense plate
+
 # compatible with
 kali linux✅️
 termux✅️
