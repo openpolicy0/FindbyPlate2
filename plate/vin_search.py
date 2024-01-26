@@ -9,7 +9,8 @@ from bs4 import BeautifulSoup
 from time import sleep
 
 def vin():
-    with open("vin", "r") as v:
+    pwd = os.getcwd()
+    with open(pwd+"/plate/vin", "r") as v:
          vin = v.readline()
 
     url = 'https://www.vinfreecheck.com/vin/'+vin+'/vehicle-specification'
