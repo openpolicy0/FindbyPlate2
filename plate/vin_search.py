@@ -58,8 +58,8 @@ def vin():
 [dim cyan][LINK]===> [/dim cyan][bold white]"""+url+"""[/bold white]
 [dim cyan][TITLE][/dim cyan][bold white] """+title+"""[/bold white]
             """)
-        except Exception as e:
-            print("[bold red][ERROR][/bold red]:", e)
+        except:
+            print("[bold red][ERROR][/bold red]: [bold white]timeout error[/bold white]")
     print("""
 [dim cyan][INFO]====> [/dim cyan][bold white]searching for """+tag1.string+""" in google[/bold white]
 [dim cyan][INFO]====> [/dim cyan][bold white]default search results set to <10>[/bold white]
