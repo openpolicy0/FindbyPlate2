@@ -24,11 +24,13 @@ pwd = os.getcwd()
 print("""[purple]
 type "help" for more options in terminal
 type "show" for input variables and "set" to set the value ex. set <value>
+
+!do not type full name of the given state, just abbreviation!
 [/purple]""")
 
 def menu():
     try:
-        fbp = str(input("(findbyplate2) ")).strip()
+        fbp = str(input("(findbyplate2): ")).strip()
     except:
         time.sleep(0.1)
         sys.exit()
@@ -38,18 +40,18 @@ def menu():
   options
 ===========
 
- set options      info
--------------    ------
-set plate         set lisense plate ex. set plate
-set state         set lisense plate state ex. set state
-set vin           set vin number of lisense plate
-list states       list all states to add a state
+ set options          info
+-------------        ------
+set plate            set lisense plate ex. set plate
+set state            set lisense plate state ex. set state
+set vin              set vin number of lisense plate
+list states          list all states to add a state
 
-show plate-options      show lisense plate options
-show vin-options        show vin lookup options
+show plate options   show lisense plate options
+show vin options     show vin lookup options
 
-run plate-search  run search on plate and get information on it
-run vin-search    run vin lookup and see details about the owners car
+run_plate            run search on plate and get information on it
+run_vin              run vin lookup and see details about the owners car
 
 exit
        """)
@@ -100,31 +102,37 @@ set vin                  set vin number (vehicle identification number) of
 
     elif fbp=="show":
          print("""[*] type "show -v" for detail info""")
-         print("(plate-options,vin-options)")
+         print("(plate options,vin options)")
          menu()
 
     elif fbp=="show -v":
          print("""
  show options               info
 --------------             ------
-show plate-options         show lisense plate options
-show vin-options           show vin lookup options
+show plate options         show lisense plate options
+show vin options           show vin lookup options
          """)
          menu()
 
-    elif fbp=="show plate-options":
+    elif fbp=="show plate options":
          try:
              print("==>", plate)
              print("==>", state)
          except:
-             print("[dark_orange]no plate options found[/dark_orange]")
+             print("""
+[dark_orange]no plate options found
+<define the target <plate/state> with <set> command>[/dark_orange]
+             """)
          menu()
 
-    elif fbp=="show vin-options":
+    elif fbp=="show vin options":
          try:
              print("==>", vin)
          except:
-             print("[dark_orange]no vin number options found[/dark_orange]")
+             print("""
+[dark_orange]no vin number options found
+<define the target <vin> with the <set> command>[/dark_orange]
+             """)
          menu()
 
     elif fbp=="list states":
@@ -184,14 +192,14 @@ WY - wyoming
          [/blue]""")
          menu()
 
-    elif fbp=="run plate-search":
+    elif fbp=="run_plate":
          try:
              PLATE.plate()
          except:
              print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
          menu()
 
-    elif fbp=="run vin-search":
+    elif fbp=="run_vin":
          try:
              VIN.vin()
          except:
