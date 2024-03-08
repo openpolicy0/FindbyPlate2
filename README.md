@@ -4,7 +4,7 @@ I made this so I could know more about a vehicle and get more info about it
 I also made this so it would be easier to use unlike most programs this one uses findbyplate.com 
 like a free API kinda.
 
-#Updates!
+# Updates!
 1. format of findbyplate2 has been updated
 2. speed of receiving information is faster
 3. loading animation has been changed
@@ -13,6 +13,12 @@ like a free API kinda.
 It will give u a shell like interface, type help to see commands 
 i am still working on this program to extract the information from the givin output
 
+# installation
+'''
+git clone https://github.com/openpolicy0/FindbyPlate2.git
+cd FindbyPlate2
+pip install -r requirements.txt
+'''
 
 you will probably have to go to the website first and lookup the lisense plate then go back to your terminal and input the lisense plate and state for example - CA and lisense plate
 
