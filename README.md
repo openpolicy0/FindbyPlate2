@@ -14,11 +14,11 @@ It will give u a shell like interface, type help to see commands
 i am still working on this program to extract the information from the givin output
 
 # installation
-'''
+,,,
 git clone https://github.com/openpolicy0/FindbyPlate2.git
 cd FindbyPlate2
 pip install -r requirements.txt
-'''
+,,,
 
 you will probably have to go to the website first and lookup the lisense plate then go back to your terminal and input the lisense plate and state for example - CA and lisense plate
 
