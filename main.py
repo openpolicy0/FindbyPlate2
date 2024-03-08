@@ -16,8 +16,12 @@ os.system('clear')
 try:
     socket.create_connection(("www.google.com", 80), timeout=5)
     print("[bold green]connected[/bold green]")
+    sleep(1)
+    os.system('clear')
 except OSError:
     print("[bold red]no connection[/bold red]")
+    sleep(1)
+    os.system('clear')
 
 print("""[bold blue]
    __ _         _ _              _      _       ___ 
@@ -56,11 +60,13 @@ states               list all states to add a state
 
 show plate options   show lisense plate options
 show vin options     show vin lookup options
+show all             show all options you defind
 
 run_plate            run search on plate and get information on it
 run_vin              run vin lookup and see details about the owners car
 
-exit
+delete               delete files with the data inside them
+exit                 exit tool
        """)
        menu()
 
@@ -109,7 +115,7 @@ set vin                  set vin number (vehicle identification number) of
 
     elif fbp=="show":
          print("""[*] type "show -v" for detail info""")
-         print("(plate options,vin options)")
+         print("(plate options,vin options, show all)")
          menu()
 
     elif fbp=="show -v":
@@ -118,6 +124,7 @@ set vin                  set vin number (vehicle identification number) of
 --------------             ------
 show plate options         show lisense plate options
 show vin options           show vin lookup options
+show all                   show all options you defind
          """)
          menu()
 
@@ -140,6 +147,21 @@ show vin options           show vin lookup options
 [dark_orange]no vin number options found
 <define the target <vin> with the <set> command>[/dark_orange]
              """)
+         menu()
+
+    elif fbp=="show all":
+         try:
+             print("==>", plate)
+         except:
+             print("[dark_orange]==> <plate> not defind[/dark_orange]")
+         try:
+             print("==>", state)
+         except:
+             print("[dark_orange]==> <state> not defind[/dark_orange]")
+         try:
+             print("==>", vin)
+         except:
+             print("[dark_orange]==> <vin> not defind[/dark_orange]")
          menu()
 
     elif fbp=="states":
@@ -214,6 +236,50 @@ WY  		wyoming
          except:
              print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
          menu()
+
+    elif fbp=="run_all":
+         try:
+             PLATE.plate()
+         except:
+             print("[dark_orange]<type error> plate/state not defind[/dark_orange]")
+         try:
+             VIN.vin()
+         except:
+             print("[dark_orange]<type error> vin number not defind[/dark_orange]")
+         menu()
+
+    elif fbp=="delete":
+         path = os.getcwd()
+         file_pl = path+"/plate/plate"
+         file_vi = path+"/plate/vin"
+         file_st = path+"/plate/state"
+         print("are you sure you want to delete saved data?")
+         delete_file = str(input("(findbyplate2)(y/n): ")).strip()
+         if delete_file == "y":
+            if os.path.exists(file_pl):
+               os.remove(file_pl)
+               print("[bold white]plate data [/bold white][bold green]deleted![/bold green]")
+               sleep(0.1)
+            else:
+               print("[dark_orange]<plate> data is not there or deleted[/dark_orange]")
+            if os.path.exists(file_vi):
+               os.remove(file_vi)
+               print("[bold white]vin data [/bold white][bold green]deleted![/bold green]")
+               sleep(0.1)
+            else:
+               print("[dark_orange]<vin> data is not there or deleted[/dark_orange]")
+            if os.path.exists(file_st):
+               os.remove(file_st)
+               print("[bold white]state data [/bold white][bold green]deleted![/bold green]")
+               sleep(0.1)
+            else:
+               print("[dark_orange]<state> data is not there or deleted[/dark_orange]")
+         elif delete_file == "n":
+              print("ok keeping saved data")
+         else:
+              print("[dark_orange]<type error> option not defind[/dark_orange]")
+         menu()
+
     elif fbp=="exit":
          sleep(1)
          sys.exit()
