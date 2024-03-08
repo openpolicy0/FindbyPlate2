@@ -2,6 +2,7 @@ import requests
 import sys
 import os
 import time
+import socket
 
 from rich import print
 from bs4 import BeautifulSoup
@@ -11,6 +12,12 @@ import plate.plate_search as PLATE
 import plate.vin_search as VIN
 
 os.system('clear')
+
+try:
+    socket.create_connection(("www.google.com", 80), timeout=5)
+    print("[bold green]connected[/bold green]")
+except OSError:
+    print("[bold red]no connection[/bold red]")
 
 print("""[bold blue]
    __ _         _ _              _      _       ___ 
