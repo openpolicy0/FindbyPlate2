@@ -2,7 +2,12 @@
 a lisense plate lookup tool i made. part of osint
 I made this so I could know more about a vehicle and get more info about it
 I also made this so it would be easier to use unlike most programs this one uses findbyplate.com 
-like a free API kinda. 
+like a free API kinda.
+
+#Updates!
+1. format of findbyplate2 has been updated
+2. speed of receiving information is faster
+3. loading animation has been changed
 
 # description
 It will give u a shell like interface, type help to see commands 
