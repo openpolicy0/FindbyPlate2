@@ -30,10 +30,10 @@ def plate():
     animation = "|/-\\"
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\rsearching " + animation[i % len(animation)])
+        sys.stdout.write("\r<searching> [PLATE] " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\r - Done![/bold green]")
+    print("[bold green]\r ✅[/bold green]")
     time.sleep(4)
     tag_plate = report.find_all(["div", "/div"], class_="cell" or "clearfix")
     try:

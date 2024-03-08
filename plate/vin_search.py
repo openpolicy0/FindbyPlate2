@@ -24,7 +24,7 @@ def vin():
 
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\rsearching " + animation[i % len(animation)])
+        sys.stdout.write("\r<searching> [VIN] " + animation[i % len(animation)])
         sys.stdout.flush()
 
     print("[bold green]\r - Done![/bold green]")
@@ -38,15 +38,18 @@ def vin():
         sleep(0.2)
     print()
     print("[dim cyan][INFO]====>[/dim cyan][bold white]searching vin number "+vin+" on google[/bold white]")
+    print("[dim cyan][INFO]====>[/dim cyan][bold white]search results will not always be as accurate or may not show[/bold white]")
     print("[dim cyan][INFO]====>[/dim cyan][bold white]default search results set to <10>[/bold white]")
+    print()
+
     animation = "|/-\\"
 
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\rsearching " + animation[i % len(animation)])
+        sys.stdout.write("\r<searching> [GOOGLE] " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\r - Done![/bold green]")
+    print("[bold green]\r ✅[/bold green]")
     time.sleep(4)
     query = vin
     for url in search(query, num=10, stop=10, pause=2):
@@ -54,37 +57,32 @@ def vin():
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             title = soup.find('title').get_text()
-            print("""
-[dim cyan][LINK]===> [/dim cyan][bold white]"""+url+"""[/bold white]
-[dim cyan][TITLE][/dim cyan][bold white] """+title+"""[/bold white]
-            """)
+            print("[dim cyan][LINK]===> [/dim cyan][bold white]"+url+"[/bold white]")
+            print("[dim cyan][TITLE][/dim cyan][bold white] "+title+"[/bold white]")
+            print()
         except:
             print("[bold red][ERROR][/bold red]: [bold white]timeout error[/bold white]")
-    print("""
-[dim cyan][INFO]====> [/dim cyan][bold white]searching for """+tag1.string+""" in google[/bold white]
-[dim cyan][INFO]====> [/dim cyan][bold white]default search results set to <10>[/bold white]
-    """)
-
+    print("[dim cyan][INFO]====> [/dim cyan][bold white]searching for "+tag1.string+" in google[/bold white]")
+    print("[dim cyan][INFO]====> [/dim cyan][bold white]default search results set to <10>[/bold white]")
+    print()
     query = tag1.string
 
     animation = "|/-\\"
 
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\rsearching " + animation[i % len(animation)])
+        sys.stdout.write("\rsearching [GOOGLE] " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\r - Done![/bold green]")
+    print("[bold green]\r ✅[/bold green]")
     time.sleep(4)
     for url in search(query, num=10, stop=10, pause=2):
         try:
             response = requests.get(url, timeout=5)
             soup = BeautifulSoup(response.text, 'html.parser')
             title = soup.find('title').get_text()
-            print("""
-[dim cyan][LINK]===> [/dim cyan][bold white]"""+url+"""[/bold white]
-[dim cyan][TITLE][/dim cyan][bold white] """+title+"""[/bold white]
-            """)
+            print("[dim cyan][LINK]===>[/dim cyan][bold white]"+url+"[/bold white]")
+            print("[dim cyan][TITLE]===>[/dim cyan][bold white]"+title+"[/bold white]")
             print()
         except:
             print("[bold red][ERROR][/bold red]: [bold white]timeout error[/bold white]")
