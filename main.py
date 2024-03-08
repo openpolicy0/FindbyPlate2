@@ -45,7 +45,7 @@ def menu():
 set plate            set lisense plate ex. set plate
 set state            set lisense plate state ex. set state
 set vin              set vin number of lisense plate
-list states          list all states to add a state
+states               list all states to add a state
 
 show plate options   show lisense plate options
 show vin options     show vin lookup options
@@ -135,61 +135,63 @@ show vin options           show vin lookup options
              """)
          menu()
 
-    elif fbp=="list states":
-         print("""[blue]
-AL - alabama
-AK - alaska
-AZ - arizona
-AR - arkansas
-CA - california
-CO - colorado
-CT - connecticut
-DE - delaware
-DC - district of columbia
-FL - florida
-GA - Georgia
-HI - hawaii
-ID - idaho
-IL - illinois
-IN - indiana
-IA - iowa
-KS - kansas
-KY - kentucky
-LA - louisiana
-ME - maine
-MD - maryland
-MA - massachusetts
-MI - michigan
-MN - minnesota
-MS - mississippi
-MO - missouri
-MT - montana
-NE - nebraska
-NV - nevada
-MH - new hampshire
-NJ - new jersey
-NM - new mexico
-NY - new york
-NC - north carolina
-ND - north dakota
-OH - ohio
-OK - oklahoma
-OR - oregon
-PA - pennsylvania
-PR - puerto rico
-RI - rhode island
-SC - south carolina
-SD - south dakota
-TN - tennessee
-TX - texas
-UT - utah
-VT - vermont
-VA - virginia
-WA - washington
-WV - west virginia
-WI - wisconsin
-WY - wyoming
-         [/blue]""")
+    elif fbp=="states":
+         print("""
+ options         states
+---------       --------
+AL  		alabama
+AK  		alaska
+AZ  		arizona
+AR  		arkansas
+CA  		california
+CO  		colorado
+CT  		connecticut
+DE  		delaware
+DC  		district of columbia
+FL  		florida
+GA  		Georgia
+HI  		hawaii
+ID  		idaho
+IL  		illinois
+IN  		indiana
+IA  		iowa
+KS  		kansas
+KY  		kentucky
+LA  		louisiana
+ME  		maine
+MD  		maryland
+MA  		massachusetts
+MI  		michigan
+MN  		minnesota
+MS  		mississippi
+MO  		missouri
+MT  		montana
+NE  		nebraska
+NV  		nevada
+MH  		new hampshire
+NJ  		new jersey
+NM  		new mexico
+NY  		new york
+NC  		north carolina
+ND  		north dakota
+OH  		ohio
+OK  		oklahoma
+OR  		oregon
+PA  		pennsylvania
+PR  		puerto rico
+RI  		rhode island
+SC  		south carolina
+SD  		south dakota
+TN  		tennessee
+TX  		texas
+UT  		utah
+VT  		vermont
+VA  		virginia
+WA  		washington
+WV  		west virginia
+WI  		wisconsin
+WY  		wyoming
+         """)
          menu()
 
     elif fbp=="run_plate":
