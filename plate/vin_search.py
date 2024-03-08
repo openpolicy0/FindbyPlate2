@@ -24,10 +24,10 @@ def vin():
 
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\r" + animation[i % len(animation)])
+        sys.stdout.write("\rsearching " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\nDone![/bold green]")
+    print("[bold green]\r - Done![/bold green]")
     time.sleep(4)
     tag1 = html.find(["p"], class_="h2 subtitle-2")
     print("[dim cyan][INFO][CAR NAME]====>[/dim cyan][bold white]"+tag1.string+"[/bold white]")
@@ -43,10 +43,10 @@ def vin():
 
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\r" + animation[i % len(animation)])
+        sys.stdout.write("\rsearching " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\nDone![/bold green]")
+    print("[bold green]\r - Done![/bold green]")
     time.sleep(4)
     query = vin
     for url in search(query, num=10, stop=10, pause=2):
@@ -71,10 +71,10 @@ def vin():
 
     for i in range(200):
         time.sleep(0.1)
-        sys.stdout.write("\r" + animation[i % len(animation)])
+        sys.stdout.write("\rsearching " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\nDone![/bold green]")
+    print("[bold green]\r - Done![/bold green]")
     time.sleep(4)
     for url in search(query, num=10, stop=10, pause=2):
         try:
