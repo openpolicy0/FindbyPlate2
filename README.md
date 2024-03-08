@@ -8,6 +8,7 @@ like a free API kinda.
 1. format of findbyplate2 has been updated
 2. speed of receiving information is faster
 3. loading animation has been changed
+4. google search added to vin search
 
 # description
 It will give u a shell like interface, type help to see commands 
