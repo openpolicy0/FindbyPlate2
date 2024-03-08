@@ -27,7 +27,7 @@ def vin():
         sys.stdout.write("\r<searching> [VIN] " + animation[i % len(animation)])
         sys.stdout.flush()
 
-    print("[bold green]\r - Done![/bold green]")
+    print("[bold green]\r ✅[/bold green]")
     time.sleep(4)
     tag1 = html.find(["p"], class_="h2 subtitle-2")
     print("[dim cyan][INFO][CAR NAME]====>[/dim cyan][bold white]"+tag1.string+"[/bold white]")
