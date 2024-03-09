@@ -61,6 +61,15 @@ delete               delete files with the data inside them
 exit                 exit tool
 """
 
+def plate_set(plate):
+    return len(plate) > 1
+
+def state_set(state):
+    return len(state) > 1
+
+def vin_set(vin):
+    return len(vin) > 1
+
 def menu():
     plate = ''
     state = ''
@@ -118,37 +127,34 @@ def menu():
             """)
 
         elif fbp=="show plate options":
-            try:
-                print("==>", plate)
-                print("==>", state)
-            except:
+            if not plate_set(plate) or not state_set(state):
                 print("""
     [dark_orange]no plate options found
     <define the target <plate/state> with <set> command>[/dark_orange]
                 """)
+                return
+
+            print("==>", plate)
+            print("==>", state)
 
         elif fbp=="show vin options":
-            try:
-                print("==>", vin)
-            except:
+            if not vin_set(vin):
                 print("""
     [dark_orange]no vin number options found
     <define the target <vin> with the <set> command>[/dark_orange]
                 """)
+                return
+
+            print("==>", vin)
+                
 
         elif fbp=="show all":
-            try:
+            if plate_set(plate):
                 print("==>", plate)
-            except:
-                print("[dark_orange]==> <plate> not defind[/dark_orange]")
-            try:
+            if state_set(state):
                 print("==>", state)
-            except:
-                print("[dark_orange]==> <state> not defind[/dark_orange]")
-            try:
+            if vin_set(vin):
                 print("==>", vin)
-            except:
-                print("[dark_orange]==> <vin> not defind[/dark_orange]")
 
         elif fbp=="states":
             print("""
@@ -210,26 +216,31 @@ def menu():
             
 
         elif fbp=="run_plate":
-            try:
-                PLATE.search_plate(plate, state)
-            except:
-                print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
+            if not plate_set(plate):
+                print("No plate set.")
+                return
+
+            PLATE.search_plate(plate, state)
 
         elif fbp=="run_vin":
-            try:
-                VIN.search_vin(vin)
-            except:
-                print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
+            if not vin_set(vin):
+                print("No VIN set.")
+                return
+
+            VIN.search_vin(vin)
 
         elif fbp=="run_all":
-            try:
-                PLATE.search_plate(plate, state)
-            except:
-                print("[dark_orange]<type error> plate/state not defind[/dark_orange]")
-            try:
-                VIN.search_vin(vin)
-            except:
-                print("[dark_orange]<type error> vin number not defind[/dark_orange]")
+            if not plate_set(plate):
+                print("No plate set.")
+                return
+            
+            PLATE.search_plate(plate, state)
+            
+            if not vin_set(vin):
+                print("No VIN set.")
+                return
+
+            VIN.search_vin(vin)
 
         elif fbp=="exit":
             sleep(1)
