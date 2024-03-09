@@ -211,23 +211,23 @@ def menu():
 
         elif fbp=="run_plate":
             try:
-                PLATE.plate()
+                PLATE.search_plate(plate, state)
             except:
                 print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
 
         elif fbp=="run_vin":
             try:
-                VIN.vin()
+                VIN.search_vin(vin)
             except:
                 print("[dark_orange]<type error> not all objects are defind[/dark_orange]")
 
         elif fbp=="run_all":
             try:
-                PLATE.plate()
+                PLATE.search_plate(plate, state)
             except:
                 print("[dark_orange]<type error> plate/state not defind[/dark_orange]")
             try:
-                VIN.vin()
+                VIN.search_vin(vin)
             except:
                 print("[dark_orange]<type error> vin number not defind[/dark_orange]")
 

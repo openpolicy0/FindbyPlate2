@@ -1,6 +1,5 @@
 import requests
 import sys
-import os
 import time
 import random
 
@@ -9,14 +8,7 @@ from rich import print
 from bs4 import BeautifulSoup
 from time import sleep
 
-def plate():
-    pwd = os.getcwd()
-    with open(pwd+"/plate/plate", "r") as lp:
-         plate = lp.readline()
-
-    with open(pwd+"/plate/state", "r") as st:
-         state = st.readline()
-
+def search_plate(plate, state):
     url2 = 'https://findbyplate.com/US/'+state+'/'+plate+'/'
 
     headers = {
