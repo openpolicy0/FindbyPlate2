@@ -51,14 +51,14 @@ def vin():
 
     print("[bold green]\r ✅[/bold green]")
     time.sleep(4)
-    query = vin
+    query = "["+vin+"]"
     for url in search(query, num=10, stop=10, pause=2):
         try:
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             title = soup.find('title').get_text()
-            print("[dim cyan][LINK]===> [/dim cyan][bold white]"+url+"[/bold white]")
-            print("[dim cyan][TITLE][/dim cyan][bold white] "+title+"[/bold white]")
+            print("[dim cyan][LINK]===>[/dim cyan][bold white]"+url+"[/bold white]")
+            print("[dim cyan][TITLE]===>[/dim cyan][bold white] "+title+"[/bold white]")
             print()
         except:
             print("[bold red][ERROR][/bold red]: [bold white]timeout error[/bold white]")
@@ -85,4 +85,4 @@ def vin():
             print("[dim cyan][TITLE]===>[/dim cyan][bold white]"+title+"[/bold white]")
             print()
         except:
-            print("[bold red][ERROR][/bold red]: [bold white]timeout error[/bold white]")
+            pass
