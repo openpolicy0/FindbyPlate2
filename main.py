@@ -39,6 +39,28 @@ type "show" for input variables and "set" to set the value ex. set <value>
 !do not type full name of the given state, just abbreviation!
 [/purple]""")
 
+help_banner = """
+options
+===========
+
+set options          info
+-------------        ------
+set plate            set lisense plate ex. set plate
+set state            set lisense plate state ex. set state
+set vin              set vin number of lisense plate
+states               list all states to add a state
+
+show plate options   show lisense plate options
+show vin options     show vin lookup options
+show all             show all options you defind
+
+run_plate            run search on plate and get information on it
+run_vin              run vin lookup and see details about the owners car
+
+delete               delete files with the data inside them
+exit                 exit tool
+"""
+
 def menu():
     plate = ''
     state = ''
@@ -54,27 +76,7 @@ def menu():
 
     while not _exit:
         if fbp=="help":
-            print("""
-        options
-        ===========
-
-        set options          info
-        -------------        ------
-        set plate            set lisense plate ex. set plate
-        set state            set lisense plate state ex. set state
-        set vin              set vin number of lisense plate
-        states               list all states to add a state
-
-        show plate options   show lisense plate options
-        show vin options     show vin lookup options
-        show all             show all options you defind
-
-        run_plate            run search on plate and get information on it
-        run_vin              run vin lookup and see details about the owners car
-
-        delete               delete files with the data inside them
-        exit                 exit tool
-            """)
+            print(help_banner)
 
         elif fbp=="set":
             print("""[*] type "set -v" for detail info""")
@@ -228,37 +230,6 @@ def menu():
                 VIN.vin()
             except:
                 print("[dark_orange]<type error> vin number not defind[/dark_orange]")
-
-        elif fbp=="delete":
-            path = os.getcwd()
-            file_pl = path+"/plate/plate"
-            file_vi = path+"/plate/vin"
-            file_st = path+"/plate/state"
-            print("are you sure you want to delete saved data?")
-            delete_file = str(input("(findbyplate2)(y/n): ")).strip()
-            if delete_file == "y":
-                if os.path.exists(file_pl):
-                    os.remove(file_pl)
-                    print("[bold white]plate data [/bold white][bold green]deleted![/bold green]")
-                    sleep(0.1)
-                else:
-                    print("[dark_orange]<plate> data is not there or deleted[/dark_orange]")
-                if os.path.exists(file_vi):
-                    os.remove(file_vi)
-                    print("[bold white]vin data [/bold white][bold green]deleted![/bold green]")
-                    sleep(0.1)
-                else:
-                    print("[dark_orange]<vin> data is not there or deleted[/dark_orange]")
-                if os.path.exists(file_st):
-                    os.remove(file_st)
-                    print("[bold white]state data [/bold white][bold green]deleted![/bold green]")
-                    sleep(0.1)
-                else:
-                    print("[dark_orange]<state> data is not there or deleted[/dark_orange]")
-            elif delete_file == "n":
-                print("ok keeping saved data")
-            else:
-                print("[dark_orange]<type error> option not defind[/dark_orange]")
 
         elif fbp=="exit":
             sleep(1)
