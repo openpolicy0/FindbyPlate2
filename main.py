@@ -3,6 +3,7 @@ import sys
 import os
 import time
 import socket
+import json
 
 from rich import print
 from bs4 import BeautifulSoup
@@ -61,6 +62,9 @@ delete               delete files with the data inside them
 exit                 exit tool
 """
 
+with open('states.json', 'r') as f:
+    states = json.load(f)
+
 def plate_set(plate):
     return len(plate) > 1
 
@@ -75,15 +79,15 @@ def menu():
     state = ''
     vin = ''
 
-    try:
-        fbp = str(input("(findbyplate2): ")).strip()
-    except:
-        time.sleep(0.1)
-        sys.exit()
-
     _exit = False
 
     while not _exit:
+        try:
+            fbp = str(input("(findbyplate2): ")).strip()
+        except KeyboardInterrupt:
+            print('Exiting...')
+            exit()
+            
         if fbp=="help":
             print(help_banner)
 
@@ -158,62 +162,10 @@ def menu():
 
         elif fbp=="states":
             print("""
-    options         states
-    ---------       --------
-    AL  		alabama
-    AK  		alaska
-    AZ  		arizona
-    AR  		arkansas
-    CA  		california
-    CO  		colorado
-    CT  		connecticut
-    DE  		delaware
-    DC  		district of columbia
-    FL  		florida
-    GA  		Georgia
-    HI  		hawaii
-    ID  		idaho
-    IL  		illinois
-    IN  		indiana
-    IA  		iowa
-    KS  		kansas
-    KY  		kentucky
-    LA  		louisiana
-    ME  		maine
-    MD  		maryland
-    MA  		massachusetts
-    MI  		michigan
-    MN  		minnesota
-    MS  		mississippi
-    MO  		missouri
-    MT  		montana
-    NE  		nebraska
-    NV  		nevada
-    MH  		new hampshire
-    NJ  		new jersey
-    NM  		new mexico
-    NY  		new york
-    NC  		north carolina
-    ND  		north dakota
-    OH  		ohio
-    OK  		oklahoma
-    OR  		oregon
-    PA  		pennsylvania
-    PR  		puerto rico
-    RI  		rhode island
-    SC  		south carolina
-    SD  		south dakota
-    TN  		tennessee
-    TX  		texas
-    UT  		utah
-    VT  		vermont
-    VA  		virginia
-    WA  		washington
-    WV  		west virginia
-    WI  		wisconsin
-    WY  		wyoming
-            """)
-            
+options         states
+---------       --------""")
+            for abbreviation, name in states.items():
+                print(f"{abbreviation}\t\t{name}")
 
         elif fbp=="run_plate":
             if not plate_set(plate):
