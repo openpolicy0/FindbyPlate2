@@ -51,14 +51,11 @@ set state            set lisense plate state ex. set state
 set vin              set vin number of lisense plate
 states               list all states to add a state
 
-show plate options   show lisense plate options
-show vin options     show vin lookup options
-show all             show all options you defind
+show options         show options PLATE, STATE, VIN
 
 run_plate            run search on plate and get information on it
 run_vin              run vin lookup and see details about the owners car
 
-delete               delete files with the data inside them
 exit                 exit tool
 """
 
@@ -85,7 +82,8 @@ def menu():
         try:
             fbp = str(input("(findbyplate2): ")).strip()
         except KeyboardInterrupt:
-            print('Exiting...')
+            print('[dark_orange]\nExiting...[/dark_orange]')
+            sleep(0.3)
             exit()
             
         if fbp=="help":
@@ -102,7 +100,7 @@ def menu():
     set plate                set plate number of car ex. "YZW902"
     set state                set state were the car is from ex. "CA"
     set vin                  set vin number (vehicle identification number) of
-                            plate number
+                             plate number
             """)
 
         elif fbp=="set plate":
@@ -118,47 +116,28 @@ def menu():
             print("==>", vin)
 
         elif fbp=="show":
-            print("""[*] type "show -v" for detail info""")
-            print("(plate options,vin options, show all)")
+            print("""[*] type "show options" for detail info""")
 
-        elif fbp=="show -v":
+        elif fbp=="show options":
             print("""
-    show options               info
-    --------------             ------
-    show plate options         show lisense plate options
-    show vin options           show vin lookup options
-    show all                   show all options you defind
+  show options               info
+ --------------             ------
+ show options               show options PLATE, STATE,
+                            VIN
             """)
-
-        elif fbp=="show plate options":
-            if not plate_set(plate) or not state_set(state):
-                print("""
-    [dark_orange]no plate options found
-    <define the target <plate/state> with <set> command>[/dark_orange]
-                """)
-                return
-
-            print("==>", plate)
-            print("==>", state)
-
-        elif fbp=="show vin options":
-            if not vin_set(vin):
-                print("""
-    [dark_orange]no vin number options found
-    <define the target <vin> with the <set> command>[/dark_orange]
-                """)
-                return
-
-            print("==>", vin)
-                
-
-        elif fbp=="show all":
+            s = ' '
             if plate_set(plate):
-                print("==>", plate)
+                print(" PLATE",s*20, plate)
+            else:
+               print(" PLATE",s*20, "N/A")
             if state_set(state):
-                print("==>", state)
+                print("\n STATE",s*20, state)
+            else:
+               print("\n STATE",s*20, "N/A")
             if vin_set(vin):
-                print("==>", vin)
+                print("\n VIN",s*22, vin)
+            else:
+               print("\n VIN",s*22, "N/A")
 
         elif fbp=="states":
             print("""
@@ -169,36 +148,39 @@ options         states
 
         elif fbp=="run_plate":
             if not plate_set(plate):
-                print("No plate set.")
-                return
+                print("[bold blue][*][/bold blue] No plate set.")
+                continue
 
             PLATE.search_plate(plate, state)
 
         elif fbp=="run_vin":
             if not vin_set(vin):
-                print("No VIN set.")
-                return
-
+                print("[bold blue][*][/bold blue] No VIN set.")
+                continue
+                sleep(0.1)
             VIN.search_vin(vin)
 
         elif fbp=="run_all":
             if not plate_set(plate):
-                print("No plate set.")
-                return
-            
+                print("[bold blue][*][/bold blue] No plate set.")
+                continue
+                sleep(0.1)
             PLATE.search_plate(plate, state)
             
             if not vin_set(vin):
-                print("No VIN set.")
-                return
-
+                print("[bold blue][*][/bold blue] No VIN set.")
+                continue
+                sleep(0.1)
             VIN.search_vin(vin)
 
         elif fbp=="exit":
             sleep(1)
             sys.exit()
 
+        elif fbp=="":
+           menu()
+
         else:
-            print("[red]error! no command found[/red]")
+            print("[bold red][*][/bold red] [bold white]no command "+fbp+" found[/bold white]")
 
 menu()
