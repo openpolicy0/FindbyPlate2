@@ -105,15 +105,15 @@ def menu():
 
         elif fbp=="set plate":
             plate = str(input("plate: ")).strip()
-            print("==>", plate)
+            print("==>", plate.upper())
 
         elif fbp=="set state":
             state = str(input("state: ")).strip()
-            print("==>", state)
+            print("==>", state.upper())
 
         elif fbp=="set vin":
             vin = str(input("vin: ")).strip()
-            print("==>", vin)
+            print("==>", vin.upper())
 
         elif fbp=="show":
             print("""[*] type "show options" for detail info""")
@@ -127,15 +127,15 @@ def menu():
             """)
             s = ' '
             if plate_set(plate):
-                print(" PLATE",s*20, plate)
+                print(" PLATE",s*20, plate.upper())
             else:
                print(" PLATE",s*20, "N/A")
             if state_set(state):
-                print("\n STATE",s*20, state)
+                print("\n STATE",s*20, state.upper())
             else:
                print("\n STATE",s*20, "N/A")
             if vin_set(vin):
-                print("\n VIN",s*22, vin)
+                print("\n VIN",s*22, vin.upper())
             else:
                print("\n VIN",s*22, "N/A")
 
@@ -166,7 +166,7 @@ options         states
                 continue
                 sleep(0.1)
             PLATE.search_plate(plate, state)
-            
+
             if not vin_set(vin):
                 print("[bold blue][*][/bold blue] No VIN set.")
                 continue
