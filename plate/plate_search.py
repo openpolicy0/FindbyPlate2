@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from time import sleep
 
 def search_plate(plate, state):
-    url2 = 'https://findbyplate.com/US/'+state+'/'+plate+'/'
+    url2 = 'https://findbyplate.com/US/'+state.upper()+'/'+plate.upper()+'/'
 
     headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0'

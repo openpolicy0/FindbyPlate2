@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from time import sleep
 
 def search_vin(vin):
-    url = 'https://www.vinfreecheck.com/vin/'+vin+'/vehicle-specification'
+    url = 'https://www.vinfreecheck.com/vin/'+vin.upper()+'/vehicle-specification'
 
     r = requests.get(url)
     html = BeautifulSoup(r.text, "html.parser")
@@ -33,7 +33,7 @@ def search_vin(vin):
         print("[dim cyan][INFO]====>[/dim cyan][bold white]"+tag2.string+"[/bold white]")
         sleep(0.2)
     print()
-    print("[dim cyan][INFO]====>[/dim cyan][bold white]searching vin number "+vin+" on google[/bold white]")
+    print("[dim cyan][INFO]====>[/dim cyan][bold white]searching vin number "+vin.upper()+" on google[/bold white]")
     print("[dim cyan][INFO]====>[/dim cyan][bold white]search results will not always be as accurate or may not show[/bold white]")
     print("[dim cyan][INFO]====>[/dim cyan][bold white]default search results set to <10>[/bold white]")
     print()
