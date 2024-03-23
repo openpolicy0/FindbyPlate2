@@ -158,7 +158,7 @@ options         states
                 print("[bold blue][*][/bold blue] No VIN set.")
                 continue
                 sleep(0.1)
-            VIN.search_vin(vin)
+            VIN.lookup_vin(vin)
 
         elif fbp=="run_all":
             if not plate_set(plate):
@@ -171,7 +171,7 @@ options         states
                 print("[bold blue][*][/bold blue] No VIN set.")
                 continue
                 sleep(0.1)
-            VIN.search_vin(vin)
+            VIN.lookup_vin(vin)
 
         elif fbp=="exit":
             sleep(1)
