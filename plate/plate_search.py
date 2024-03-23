@@ -29,8 +29,11 @@ def search_plate(plate, state):
     time.sleep(4)
     tag_plate = report.find_all(["div", "/div"], class_="cell" or "clearfix")
     try:
+        count = 0
         for tag_plate in tag_plate:
             print("[dim cyan][INFO]====>[/dim cyan][bold white]"+tag_plate.string+"[/bold white]")
+            count += 1
             sleep(0.2)
     except TypeError:
             print("")
+    print("we found", count, "results for", plate.upper())
