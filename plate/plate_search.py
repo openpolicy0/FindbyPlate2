@@ -2,6 +2,7 @@ import requests
 import sys
 import time
 import random
+import re
 
 from tqdm import tqdm
 from rich import print
@@ -28,6 +29,19 @@ def search_plate(plate, state):
     print("[bold green]\r ✅[/bold green]")
     time.sleep(4)
     tag_plate = report.find_all(["div", "/div"], class_="cell" or "clearfix")
+    car = report.find(["h2"], class_="vehicle-modal")
+    place = report.find(["a"], href="https://findbyplate.com/US/")
+    location = report.find(["a"], href="https://findbyplate.com/US/"+state.upper()+"/")
+    info = report.find(["p"], style="text-align:left;")
+    pl = place.string
+    lo = location.string
+    print("[dim cyan][INFO][CAR NAME]====>[/dim cyan] [bold white] "+car.string+"[/bold white]")
+    sleep(0.2)
+    print("|_", lo)
+    sleep(0.2)
+    print("  |_", pl)
+    sleep(0.2)
+    print("[dim cyan][DETAILS]====>[/dim cyan] [bold white]"+info.string+"[/bold white]")
     try:
         count = 0
         for tag_plate in tag_plate:
@@ -37,3 +51,4 @@ def search_plate(plate, state):
     except TypeError:
             print("")
     print("we found", count, "results for", plate.upper())
+    print("[dim cyan][IMAGE][/dim cyan] https://cdn.findbyplate.com/US/"+state.upper()+"/"+plate.upper()+".jpg")
