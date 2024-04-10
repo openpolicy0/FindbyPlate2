@@ -55,7 +55,7 @@ show options         show options PLATE, STATE, VIN
 
 run_plate            run search on plate and get information on it
 run_vin              run vin lookup and see details about the owners car
-
+run_all              run all searches on the target (lisense plate)
 exit                 exit tool
 """
 
