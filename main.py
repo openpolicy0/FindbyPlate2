@@ -37,7 +37,8 @@ print("""[purple]
 type "help" for more options in terminal
 type "show" for input variables and "set" to set the value ex. set <value>
 
-!do not type full name of the given state, just abbreviation!
+go to "https://findbyplate.com" and lookup the lisnse plate, input the plate in your terminal
+!do not type full name of the given state, just abbreviation! (ex. CA)
 [/purple]""")
 
 help_banner = """
